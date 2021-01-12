@@ -81,6 +81,10 @@ class OrdenesController extends Controller
     public function getPdf($machineId){
         $pdf = Order::find($machineId);
 
+        if($pdf->file == '0'){
+            return redirect('/main')->with('error', "La maquina con el id $machineId no cuenta con ningun archivo.");
+        }
+
         return response()->file('storage/file/' . $pdf->file);
     }
 
@@ -96,7 +100,7 @@ class OrdenesController extends Controller
         $order = Order::find($machineId);
         $order->delete();
 
-        return redirect('/main')->with('error', "La maquina con el id $machineId ya se borró ALV...");
+        return redirect('/main')->with('error', "La maquina con el id $machineId se ha eliminado.");
     }
 
     public function searchOrder(Request $request){

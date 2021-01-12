@@ -121,7 +121,7 @@
                     <a href="{{ url('/machine/' . $order->id) }}" class="btn btn-primary btn-sm">Ver</a>
                     {{-- btn modal --}}
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#staticBackdrop-{{ $order->id }}">
-                      ALV
+                      Eliminar
                     </button>
                     {{-- modal body --}}
                     <div class="modal fade" id="staticBackdrop-{{ $order->id }}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -144,15 +144,13 @@
 
                             <form action="{{ url('/delete/' . $order->id) }}" method="post">
                               @csrf
-                              <button type="submit" class="btn btn-danger">sí, ALV!</button>
+                              <button type="submit" class="btn btn-danger">Sí, eliminar.</button>
                             </form>
                           </div>
 
                         </div>
                       </div>
                     </div>
-
-
                   </td>
                 </tr>
               @endforeach
@@ -165,7 +163,6 @@
                   <td></td>
                   <td></td>
                 </tr>
-
               @endif
 
             </tbody>
