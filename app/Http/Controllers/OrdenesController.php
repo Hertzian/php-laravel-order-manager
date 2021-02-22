@@ -56,7 +56,7 @@ class OrdenesController extends Controller
             'inventary' => 'required',
             'machinetype' => 'required',
             'keyword' => 'required',
-            'file' => 'mimes:pdf|max:10000'
+            'file' => 'mimetypes:application/pdf|max:10000'
         ]);
 
         $order->order = $request->input('order');
