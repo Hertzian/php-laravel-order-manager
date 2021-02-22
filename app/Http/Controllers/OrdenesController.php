@@ -81,7 +81,7 @@ class OrdenesController extends Controller
     public function getPdf($machineId){
         $pdf = Order::find($machineId);
 
-        if($pdf->file == '0'){
+        if($pdf->file == '0' || $pdf->file == null){
             return redirect('/main')->with('error', "La maquina con el id $machineId no cuenta con ningun archivo.");
         }
 
