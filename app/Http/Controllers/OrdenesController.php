@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class OrdenesController extends Controller
 {
@@ -98,6 +99,7 @@ class OrdenesController extends Controller
 
     public function deleteMachine($machineId){
         $order = Order::find($machineId);
+        Storage::delete($order->file);
         $order->delete();
 
         return redirect('/main')->with('error', "La maquina con el id $machineId se ha eliminado.");
