@@ -99,7 +99,7 @@ class OrdenesController extends Controller
 
     public function deleteMachine($machineId){
         $order = Order::find($machineId);
-        Storage::delete('storage/file/' . $order->file);
+        Storage::delete('file/' . $order->file);
         $order->delete();
 
         return redirect('/main')->with('error', "La maquina con el id $machineId se ha eliminado.");
